@@ -1,0 +1,29 @@
+{
+  "name": "flat-promise",
+  "version": "1.0.1",
+  "author": "Arik W",
+  "license": "MIT",
+  "description": "Create a fresh new Promise with exposed 'resolve' & 'reject' callbacks available outside of its executor function",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arikw/flat-promise.git"
+  },
+  "keywords": [
+    "Promise"
+  ],
+  "engines": {
+    "node": ">= 6.4"
+  },
+  "bugs": {
+    "url": "https://github.com/arikw/flat-promise/issues"
+  },
+  "homepage": "https://github.com/arikw/flat-promise#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}

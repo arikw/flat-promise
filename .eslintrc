@@ -1,0 +1,32 @@
+{
+    "extends": "eslint:recommended",
+
+    "root": true,
+    "parserOptions": {
+        "ecmaVersion": 2015,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": false,
+            "impliedStrict": true
+        }
+    },
+    "env": {
+        "browser": false,
+        "node": true,
+        "es6": true
+    },
+    "rules": {
+        "indent": 0,
+        "space-before-function-paren": 0,
+        "eol-last": 0,
+        "no-undef": "error",
+        "semi": ["error", "always"],
+        "no-console": 0,
+        "no-useless-escape": 0,
+        "no-empty": 0,
+        "no-var": ["error"],
+        "no-unused-vars": ["error", { "vars": "all", "args": "none" }]
+    },
+    "globals": {}
+}

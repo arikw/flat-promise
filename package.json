@@ -1,6 +1,6 @@
 {
   "name": "flat-promise",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Arik W",
   "license": "MIT",
   "description": "Create a fresh new Promise with exposed 'resolve' & 'reject' callbacks available outside of its executor function",
@@ -24,6 +24,6 @@
   "homepage": "https://github.com/arikw/flat-promise#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^7.1.1"
   }
 }

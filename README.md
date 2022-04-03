@@ -14,12 +14,12 @@ npm install flat-promise
 const flatPromise = require("flat-promise");
 ```
 
-# Usage Examples
+# Examples
 
-## The "safe" way ##
-`flatPromise()` will return an object containing a new `Promise` along with its `resolve()` and `reject()` methods.
+## Basic usage ##
+`flatPromise()` will return an object containing a new `Promise` and its `resolve()` and `reject()` methods.
 
-#### Creating an instance ####
+### Creating an instance ###
 
 ```js
 const { resolve, reject, promise } = flatPromise();
@@ -27,7 +27,7 @@ const { resolve, reject, promise } = flatPromise();
 
 It's recommended to avoid giving the control of the promise (the resolution methods) beyond the outer scope of where the promise was created - don't return `resolve()` or `reject()` methods nor keep a reference to the methods in an outer scope.
 
-#### Usage example ####
+### Usage example ###
 ```js
 function doAsyncWork() {
 
@@ -48,13 +48,15 @@ const result = await doAsyncWork();
 console.log(result);
 ```
 
-## The "unsafe" way ##
+## Alternative usage ##
 
-`flatPromise.withControl()` will return a promise with the resolution methods inside it - meaning passing the promise is also passing the `resolve()` and `reject()` methods, the control, along with it.
+`flatPromise.withControl()` will return a promise with its resolution methods exposed inside it. It means passing around the promise is also passing around its `resolve()` and `reject()` methods.
 
 The `then()`, `catch()` & `finally()` methods also return a promise containing `resolve()` and `reject()` methods.
 
-#### Creating an instance ####
+***Notice: This usage makes the promise state harder to maintain and to control.***
+
+### Creating an instance ###
 
 ```js
 const promise = flatPromise.withControl();
@@ -63,7 +65,7 @@ const promise = flatPromise.withControl();
 ```js
 const { promise, resolve, reject } = flatPromise.withControl();
 ```
-#### Usage example ####
+### Usage example ###
 ```js
 function doAsyncWork() {
 
@@ -83,3 +85,8 @@ function doAsyncWork() {
 const result = await doAsyncWork();
 console.log(result);
 ```
+
+# Caveat
+
+This library basically brings a way to fulfill or reject a promise outside the promise chain. It means that errors thrown in the process of promise settling will not automatically reject the promise and should be catched explicitly!
+Please see [this great explanation](https://stackoverflow.com/questions/28687566/#28692824) for more information about throw safety.
